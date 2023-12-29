@@ -1,11 +1,14 @@
-# PegaBotController
+# Pega Bot Escape Room
 
-This software allows to control a Lego Spike Prime over Bluetooth using a simple protocol, assuming the PegaBotEmbed project is deployed on it.
+This is a set of software components intended to extend Pega with the ability to control a robot and other items like camera's.
+There are 3 main components:
 
-The Controller will connect to a Rest based queue defined in Pega to pick up and pass on instructions.
+# BotController Bridge
+Bridge instructions over HTTP to Bluetooth and back. Supposed to run on an internet connected device or laptop.
 
-Required packages:
-- requests
-- yaml
-- bleak
-- asyncio
+# BotController Camera Embedded
+Program to run on a raspberry pi with camera to allow for teh taking of Photo's from Pega. Device does require internet to work.
+
+# BotController Spike Prime Embedded
+Embedded software to controll a Spike Prime based robot using pybricks
+

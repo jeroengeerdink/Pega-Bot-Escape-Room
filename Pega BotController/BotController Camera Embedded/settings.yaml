@@ -1,0 +1,14 @@
+##############
+# Settings for the main Pega to Lego Controller app
+##############
+
+robotId: "Camera One" # Bluetooth identification name that is also used in Pega
+baseUrl: "https://xxxxx/prweb/api/PegaBotController/1/" # Base url of the controller API
+userName: "" # Pega user identifier
+password: "" # Pega user identifier
+pegaAPIUrl: "https://xxxxx/prweb/api/application/v2"
+pegaAPIOAuthUrl: "https://xxxxx/PRRestService/oauth2/v1/token"
+pegaAPIClient: "123456"
+pegaAPISecret: "ABCD"
+attachment_category: "File"
+attachment_filename: "legocam.jpg"

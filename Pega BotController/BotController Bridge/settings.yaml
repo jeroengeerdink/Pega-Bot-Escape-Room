@@ -1,0 +1,8 @@
+##############
+# Settings for the main Pega to Lego Controller app
+##############
+
+robotId: "Pega Two" # Bluetooth identification name that is also used in Pega
+baseUrl: "https://xxxxx/prweb/api/PegaBotController/1/" # Base url of the controller API
+userName: "" # Pega user identifier
+password: "" # Pega user identifier

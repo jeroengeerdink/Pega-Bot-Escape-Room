@@ -1,4 +1,4 @@
-# Emdded program fore Lego Robot
+# Emdded program for Lego Robot
 
 Code allows for the control of a Spike Prime robot ver Bluetooth using a simple protcol.
 Make sure tha spike prime is flashed with pybricks > https://pybricks.com/

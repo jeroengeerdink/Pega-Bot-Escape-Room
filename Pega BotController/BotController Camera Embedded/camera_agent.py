@@ -90,7 +90,7 @@ class CameraController:
             self.camera.resolution = (1920, 1080)
     
     def attach_photo_to_case(self, photo, caseid, category, filename):
-        print("uploading")
+        print("uploading > " + caseid + " | " + category + " | " + filename)
         pegaToken = get_access_token(settings['pegaAPIOAuthUrl'], settings['pegaAPIClient'], settings['pegaAPISecret'])
         url = f"{pegaAPIUrl}/attachments/upload"
         headers = {'Authorization': 'Bearer ' + pegaToken}

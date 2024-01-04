@@ -11,6 +11,6 @@ else
     echo "$SERVICE stopped"
     (
         echo Starting $(date)
-        python legocam_agent.py
-    ) &> legocam_agent.log  
+        python camera_agent.py
+    ) &> camera_agent.log  
 fi

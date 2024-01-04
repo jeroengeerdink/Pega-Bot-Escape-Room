@@ -59,14 +59,17 @@ class CameraController:
         self.processing = False
         self.response = ""
         self.camera = picamera.PiCamera()
+        self.resolution = "medium"
         self.camera.resolution = (1920, 1080)
 
     def execute(self, action, parameters):
         action = action.lower()
         self.processing = True
+        params = parameters.split("|")
         if (action == "photo"):
+            self.setResolution(params[2])
             photo = self.capture_photo()
-            self.attach_photo_to_case(photo, parameters)
+            self.attach_photo_to_case(photo, params[0], params[1], params[3])
 
     def capture_photo(self):
         stream = io.BytesIO()
@@ -77,7 +80,16 @@ class CameraController:
         print(len(photo))
         return photo
     
-    def attach_photo_to_case(self, photo, caseid):
+    def setResolution(self, resolution):
+        self.resolution = resolution
+        if (resolution == "low"):
+            self.camera.resolution = (1024, 768)
+        elif (resolution == "high"):
+            self.camera.resolution = (2560, 1440)
+        else:
+            self.camera.resolution = (1920, 1080)
+    
+    def attach_photo_to_case(self, photo, caseid, category, filename):
         print("uploading")
         pegaToken = get_access_token(settings['pegaAPIOAuthUrl'], settings['pegaAPIClient'], settings['pegaAPISecret'])
         url = f"{pegaAPIUrl}/attachments/upload"
@@ -96,7 +108,13 @@ class CameraController:
             print("attaching")
             url = f"{pegaAPIUrl}/cases/{caseid}/attachments"
             headers = {'Authorization': 'Bearer ' + pegaToken}
-            data ="{\"attachments\": [{\"attachmentFieldName\": \""+ settings['attachment_filename'] +"\",\"ID\": \""+id+"\", \"category\": \""+ settings['attachment_category'] +"\", \"delete\": true,\"name\": \""+ settings['attachment_filename'] +"\",\"type\": \"File\"}]}"
+            cat = settings['attachment_category']
+            if (category is not None):
+                cat = category
+            fn = settings['attachment_filename']
+            if (filename is not None):
+                fn = filename
+            data ="{\"attachments\": [{\"attachmentFieldName\": \""+ fn +"\",\"ID\": \""+id+"\", \"category\": \""+ cat +"\", \"delete\": true,\"name\": \""+ fn +"\",\"type\": \"File\"}]}"
             response = requests.post(url, data=data, headers=headers)
             print(response.text)
 

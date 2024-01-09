@@ -103,6 +103,7 @@ class CameraController:
             data = json.loads(response.text)
             print(response.text)
             id = data['ID']
+            self.response = id
         
         if (id != ""):
             print("attaching")
@@ -116,7 +117,6 @@ class CameraController:
                 fn = filename
             data ="{\"attachments\": [{\"attachmentFieldName\": \""+ fn +"\",\"ID\": \""+id+"\", \"category\": \""+ cat +"\", \"delete\": true,\"name\": \""+ fn +"\",\"type\": \"File\"}]}"
             response = requests.post(url, data=data, headers=headers)
-            print(response.text)
 
 def get_access_token(url, client_id, client_secret):
     response = requests.post(

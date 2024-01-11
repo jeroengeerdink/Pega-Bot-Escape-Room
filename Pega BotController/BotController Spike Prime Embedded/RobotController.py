@@ -83,6 +83,7 @@ def applySetting(params):
                 
 def checkSensorsForCollision():
     if sensor.reflection() <= BLACK_REFLECTION and sensor.color(True) == Color.NONE:
+        drive_base.stop()
         sound_gameover()
         stdout.write("linedetected")
         stdout.flush()
@@ -109,7 +110,6 @@ def drive(steps, ignore="false"):
         wait(10)
         if ignore != "true":
             if checkSensorsForCollision():
-                drive_base.stop()
                 return
 
 def driveUntil(color, ignore="false"):
@@ -121,7 +121,6 @@ def driveUntil(color, ignore="false"):
             return
         if ignore != "true":
             if checkSensorsForCollision():
-                drive_base.stop()
                 return
 
 def turn(degrees):

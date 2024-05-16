@@ -1,14 +1,13 @@
 # BotController for Camera
-Python program to run on Raspberry pi with a PiCamera installed.
+This Python program runs on a Raspberry Pi that has an installed PiCamera.
 
-The programm will poll rest endpoints for instructions and execute these if any are found.
-The resultng fill will be uploaded through the standard Pega APIs.
-You can use the launcher.sh script and add this to the start up actions
+The program polls REST endpoints for instructions and executes any incoming instructions.
+The result is uploaded through the standard Pega APIs.
 
+You can use the launcher.sh script and add this to the start-up actions.
 nano ~/.bashrc
 
 Add this to the bottom:
-
 sh /path/to/launcher.sh
 
-Make sure you add the right values in the settings.yaml
+Make sure that you add the correct values to the settings.yaml file.

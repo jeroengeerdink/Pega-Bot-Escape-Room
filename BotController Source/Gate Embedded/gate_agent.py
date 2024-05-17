@@ -4,7 +4,7 @@ import json
 import yaml
 from tkinter import *
 import random
-
+ 
 setting = {}
 with open("settings.yaml", "r") as yamlfile:
     settings = yaml.load(yamlfile, Loader=yaml.FullLoader)

@@ -4,5 +4,5 @@
 
 robotId: "Gate One" # Bluetooth identification name that is also used in Pega
 baseUrl: "https://23.pegatsdemo.com/prweb/api/PegaBotController/1/" # Base url of the controller API
-userName: "jeroen.geerdink@pega.com" # Pega user identifier
-password: "install12345!" # Pega user identifier
+userName: "" # Pega user identifier
+password: "" # Pega user identifier

@@ -2,6 +2,10 @@
 
 This set of software components extends Pega Low Code with the ability to control a Lego robot and other items, such as a camera.
 
+[![Lego Bot in action](https://img.youtube.com/vi/qnWUKzDhosU/0.jpg)](https://www.youtube.com/watch?v=qnWUKzDhosU)
+
+https://www.youtube.com/watch?v=qnWUKzDhosU
+
 There are four main components:
 
 ## Bot to Pega Bridge [Python]
